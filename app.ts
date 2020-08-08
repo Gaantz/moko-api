@@ -2,7 +2,7 @@ import express = require('express');
 import parser = require('body-parser');
 
 const morgan = require('morgan');
-const port: number = 80;
+const PORT = process.env.PORT || 80;
 
 const json = parser.json()
 const logger = morgan('tiny');
@@ -21,6 +21,6 @@ api.all('/login', function(req, res) {
     res.json({'url': req.url, 'method': req.method, 'body': req.body });
  });
 
-api.listen(port, function() {
-    console.log('VALHALLA API started in port ' + port);
+api.listen(PORT, function() {
+    console.log('VALHALLA API started in port ' + PORT);
 });
